@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NinoVR Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="home-container">
+        <h1>Welcome to NinoVR</h1>
+        <div class="game-icon" onclick="openGame()">
+            <img src="https://cdn-icons-png.freepik.com/512/2119/2119006.png" alt="PingPongVR">
+            <p>PingPongVR</p>
+        </div>
+    </div>
+    <div id="game-iframe-container" style="display: none;">
+        <button id="close-game" onclick="closeGame()">X</button>
+        <iframe id="game-iframe" src="https://konterball.com/" frameborder="0"></iframe>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
