@@ -4,20 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setup NinoVR</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #000;
+            color: #fff;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="setup-container">
+    <div class="container">
         <h1>Setup NinoVR on your Oculus</h1>
-        <div id="instructions">
-            <p>Press the button below to continue with the setup.</p>
-            <button id="continue-button">Continue</button>
+        <button id="continueBtn">Continue</button>
+        <div id="instructions" style="display: none;">
+            <p>Connect the Link cable to your computer and wait until the home page appears. Then press Desktop on the dock at the bottom.</p>
+            <button id="doneBtn">Done</button>
         </div>
-        <div id="link-instructions" style="display: none;">
-            <p>Connect the Link cable to your computer and wait until the home page appears, then press 'Desktop' on the dock at the bottom.</p>
-            <button id="done-button">Done</button>
-        </div>
+        <p id="doneInstructions" style="display: none;">Press done from your Oculus when connected.</p>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+
+    <script>
+        document.getElementById('continueBtn').addEventListener('click', function() {
+            document.getElementById('continueBtn').style.display = 'none';
+            document.getElementById('instructions').style.display = 'block';
+        });
+
+        document.getElementById('doneBtn').addEventListener('click', function() {
+            document.getElementById('instructions').style.display = 'none';
+            document.getElementById('doneInstructions').style.display = 'block';
+            setTimeout(function() {
+                window.location.href = 'home.html';
+            }, 2000); // Redirect to home.html after 2 seconds
+        });
+    </
